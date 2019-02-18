@@ -1,20 +1,25 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
-import P from 'folksam-ui/lib/components/Text/P';
+import React, { Component } from "react";
+import logo from "./logo.svg";
+import "./App.css";
+import injectSheet from "react-jss";
 
-class App extends Component {
-  render() {
+const styles = ({ theme }) => {
+    return {
+        header: {
+            fontWeight: "bold"
+        }
+    };
+};
+
+function App(props) {
+    const { classes } = props;
     return (
-      <div className="App">
-        <header className="App-header">
-          <P>
-            FOLKSAM
-          </P>
-        </header>
-      </div>
+        <div className="App">
+            <header className={classes.header}>
+                <p>FOLKSAM</p>
+            </header>
+        </div>
     );
-  }
 }
 
-export default App;
+export default injectSheet(styles)(App);
