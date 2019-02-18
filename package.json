@@ -3,8 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "classname": "0.0.0",
+    "folksam-ui": "^1.4.0",
+    "formik": "^1.5.1",
     "react": "^16.8.2",
     "react-dom": "^16.8.2",
+    "react-jss": "^8.6.1",
     "react-scripts": "2.1.5"
   },
   "scripts": {
