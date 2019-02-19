@@ -18,7 +18,7 @@ function Person() {
             <h2>Philip, 26 år</h2>
             <p>bor i tyresö</p>
             <p>behöver hemförsäkring</p>
-            {render}
+            {/* {render} */}
         </div>
     );
 }
