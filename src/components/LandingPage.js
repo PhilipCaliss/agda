@@ -1,9 +1,60 @@
-import React from 'react'
+import React from "react";
+import injectSheet from "react-jss";
+import { Form, Icon, Input, Button } from "antd";
 
-export default function LandingPage() {
-  return (
-    <div>
-        
-    </div>
-  )
+const styles = ({ theme }) => {
+    return {
+        flex: {
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            "& > *": {
+                margin: "10px"
+            }
+		},
+		form: {
+			display: 'flex',
+			justifyContent: 'center',
+			alignItems: 'center',
+			flexDirection: 'column',
+		}
+    };
+};
+
+class LandingPage extends React.Component {
+	constructor(props) {
+		super(props)
+	}
+
+	handleSubmit(e) {
+		e.preventDefault();
+	}
+
+	render() {
+		const { classes } = this.props;
+		return (
+			<div>
+				<Form className={classes.form} onSubmit={this.props.handleLogin}>
+					<Form.Item>
+						<Input
+							placeholder="Skriv in ditt personnummer"
+							prefix={
+								<Icon
+									type="user"
+									style={{ color: "rgba(0,0,0,.25)" }}
+								/>
+							}
+						/>
+					</Form.Item>
+					<Form.Item>
+						<Button type="primary" htmlType="submit">
+							SÄTT IGÅNG
+						</Button>
+					</Form.Item>
+				</Form>
+			</div>
+		);
+	}
 }
+
+export default injectSheet(styles)(LandingPage);
