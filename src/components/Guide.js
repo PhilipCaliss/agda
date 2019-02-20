@@ -67,18 +67,13 @@ const forsakringar = {
         info:
             "Baserat på att ni bor i stor villa, gillar att golfa och att resa"
     },
-    villa_stor_utan_tillag: {
-        typ: "villa",
+    villa: {
+        typ: "villa_liten",
         allrisk: true,
-        tillagg: [
-            {
-                pris: 0,
-                desc: "Allrisk " // (ingår i mellan)"
-            }
-        ],
-        pris: 982,
-        desc: "Villa Stor + Hem Stor",
-        info: "Baserat på att ni bor i stor villa"
+        tillagg: [],
+        pris: 500,
+        desc: "Villa + Hem",
+        info: "Baserat på att ni bor i oklart hus"
     },
     fritidshus_bas: {
         pris: 181,
@@ -263,13 +258,13 @@ class Guide extends Component {
                     }
                 },
                 insurances: [
-                    // forsakringar.villa_stor,
+                    forsakringar.villa,
                     // forsakringar.car,
                     forsakringar.barn,
                     forsakringar.barn,
                     forsakringar.spar,
                     forsakringar.spar,
-                    forsakringar.pensionsspar
+                    // forsakringar.pensionsspar
                     // forsakringar.hund,
                     // forsakringar.hund,
                     // forsakringar.fritidshus
@@ -308,11 +303,14 @@ class Guide extends Component {
             });
         };
         this.onChangeLiving = () => {
+            const array = this.state.customer.insurances.filter((ins) => {
+                return ins.typ !== 'villa_liten';
+            });
             this.setState({
                 customer: {
                     insurances: [
                         forsakringar.villa_stor,
-                        ...this.state.customer.insurances,
+                        ...array,
                     ]
                 }
             });
@@ -327,6 +325,16 @@ class Guide extends Component {
                 }
             });
         };
+        this.onChangePension = () => {
+            this.setState({
+                customer: {
+                    insurances: [
+                        forsakringar.pensionsspar,
+                        ...this.state.customer.insurances,
+                    ]
+                }
+            });
+        };
 
         this.methods = {
             onChangeIncome: this.onChangeIncome,
@@ -334,6 +342,7 @@ class Guide extends Component {
             onChangeFritid: this.onChangeFritid,
             onChangeCar: this.onChangeCar,
             onChangeDog: this.onChangeDog,
+            onChangePension: this.onChangePension,
         };
 
     }
@@ -341,7 +350,7 @@ class Guide extends Component {
     componentDidMount() {
         setTimeout(() => {
             this.setState({ isLoading: false });
-        }, 100);
+        }, 5000);
     }
 
     next() {

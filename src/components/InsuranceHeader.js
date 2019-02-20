@@ -58,6 +58,9 @@ function InsuranceHeader(props) {
         case 'villa':
             img = villa;
             break;
+        case 'villa_liten':
+            img = villa;
+            break;
         case 'barn':
             img = nalle;
             break;

@@ -20,6 +20,23 @@ const hobbies = [
     <Option key="Träning">Träning</Option>,
     <Option key="Gaming">Gaming</Option>
 ];
+const occupation = [
+    <Option key="Golf">Anställd</Option>,
+    <Option key="Båt">Arbetssökande</Option>,
+    <Option key="Skidor/Snowboard">Egen Företagare</Option>,
+    <Option key="Resor">Student</Option>,
+    <Option key="Träning">Pensionär</Option>,
+    <Option key="Intew">Arbetar inte</Option>,
+    <Option key="Gaming">Vill ej svara</Option>
+];
+
+// •	Anställd (Fack?)     Indikerar hur mycket man kan spara(?)
+// •	Arbetssökande
+// •	Egen företagare     Företagsförsäkring
+// •	Student       		Studentförsäkring – Tipsa om utlandsstudieförsäkring
+// •	Pensionär 
+// •	Arbetar inte
+// •	Vill ej svara
 
 const styles = {
     formItem: {
@@ -66,6 +83,9 @@ class Questions extends Component {
         }
         this.onChangeDog = (value) => {
             this.props.methods.onChangeDog();
+        }
+        this.onChangePension = (value) => {
+            this.props.methods.onChangePension();
         }
     }
 
@@ -118,11 +138,14 @@ class Questions extends Component {
                         <Switch onChange={this.onChangeDog} /> Ja
                     </Form.Item>
 
-                    <Form.Item
-                        label="Sysselsättning"
-                        className={classes.formItem}
-                    >
-                        <Switch onChange={this.onChange} /> Ja
+                    <Form.Item label="Sysselsättning" className={classes.formItem}>
+                        <Select
+                            style={{ width: "100%" }}
+                            placeholder="Klicka för att lägga till"
+                            onChange={this.onChange}
+                        >
+                            {occupation}
+                        </Select>
                     </Form.Item>
 
                     <Form.Item label="Fordon" className={classes.formItem}>
@@ -169,10 +192,10 @@ class Questions extends Component {
                     </Form.Item>
 
                     <Form.Item
-                        label="Har du saker värda mer än 25000kr?"
+                        label="Vill du pensionsspara?"
                         className={classes.formItem}
                     >
-                        <Switch onChange={this.onChange} /> Ja
+                        <Switch onChange={this.onChangePension} /> Ja
                     </Form.Item>
                 </Form>
             </div>

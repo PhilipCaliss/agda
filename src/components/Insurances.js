@@ -58,7 +58,7 @@ class Insurances extends Component {
                                     {till.desc} - {till.pris} kr/mån
                                 </li>
                             );
-                        }) : ""}
+                        }) : "Inga tillägg"}
                     </ul>
                 </Panel>
             );
