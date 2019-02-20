@@ -6,13 +6,15 @@ import "antd/dist/antd.css";
 import { Input } from "antd";
 import LandingPage from "./components/LandingPage";
 import { Store, Context } from "./store";
-import Guide from './components/Guide';
+import Guide from "./components/Guide";
 
 const styles = ({ theme }) => {
     return {
         app: {
             maxWidth: "600px",
-            margin: "auto"
+            margin: "auto",
+            height: "100%",
+            padding: '0px 30px'
         },
         header: {
             margin: "20px",
@@ -26,31 +28,31 @@ class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-			hasStarted: false,
-			personNr: null
-		}
+            hasStarted: false,
+            personNr: null
+        };
 
-		this.handleLogin = (e) => {
-			e.preventDefault();
-			this.setState({
-				hasStarted: true,
-			})
-		}
-	}
-	
-
+        this.handleLogin = e => {
+            e.preventDefault();
+            this.setState({
+                hasStarted: true
+            });
+        };
+    }
 
     render() {
         const { classes } = this.props;
         return (
-            <Store>
-                <div className={classes.app}>
-                    <header className={classes.header}>
-                        <h1>Försäkringskollen</h1>
-                    </header>
-					{this.state.hasStarted ? <Guide/> : <LandingPage handleLogin={this.handleLogin}/>}
-                </div>
-            </Store>
+            <div className={classes.app}>
+                <header className={classes.header}>
+                    <h1>Försäkringskollen</h1>
+                </header>
+                {this.state.hasStarted ? (
+                    <Guide />
+                ) : (
+                    <LandingPage handleLogin={this.handleLogin} />
+                )}
+            </div>
         );
     }
 }

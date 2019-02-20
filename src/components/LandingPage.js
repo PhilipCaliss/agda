@@ -37,7 +37,7 @@ class LandingPage extends React.Component {
 				<Form className={classes.form} onSubmit={this.props.handleLogin}>
 					<Form.Item>
 						<Input
-							placeholder="Skriv in ditt personnummer"
+							placeholder="Personnummer"
 							prefix={
 								<Icon
 									type="user"
@@ -47,8 +47,8 @@ class LandingPage extends React.Component {
 						/>
 					</Form.Item>
 					<Form.Item>
-						<Button type="primary" htmlType="submit">
-							SÄTT IGÅNG
+						<Button type="primary" htmlType="submit" shape="round" size="large" style={{fontWeight: 'bold'}}>
+							KÖR IGÅNG
 						</Button>
 					</Form.Item>
 				</Form>
