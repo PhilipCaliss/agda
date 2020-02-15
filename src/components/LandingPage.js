@@ -17,6 +17,12 @@ const styles = ({ theme }) => {
 			justifyContent: 'center',
 			alignItems: 'center',
 			flexDirection: 'column',
+			position: "absolute",
+            top: "50%",
+            transform: "translate(-50%, -50%)",
+			margin: 0,
+			left: "50%",
+
 		}
     };
 };

@@ -3,7 +3,6 @@ import { Form, Radio, Slider, Switch, Select, Input } from "antd";
 import injectSheet from "react-jss";
 
 const Option = Select.Option;
-
 const fordon = [
     <Option key="Bil">Bil</Option>,
     <Option key="Motorcykel">Motorcykel</Option>,
@@ -59,7 +58,7 @@ class Questions extends Component {
         this.onChange = (value, event) => {
             console.log(value);
             console.log(event);
-            event.preventDefault();
+
         }
     
         this.onChangeIncome = (value) => {

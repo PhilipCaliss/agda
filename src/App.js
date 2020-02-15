@@ -11,15 +11,16 @@ import Guide from "./components/Guide";
 const styles = ({ theme }) => {
     return {
         app: {
+            fontFamily: "Helvetica",
             maxWidth: "600px",
             margin: "auto",
             height: "100%",
-            padding: '0px 30px'
+            padding: '0px 30px',
         },
         header: {
             margin: "20px",
             textAlign: "center",
-            fontWeight: "bold"
+            fontWeight: "bold",
         }
     };
 };
